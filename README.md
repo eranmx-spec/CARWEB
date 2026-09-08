@@ -14,8 +14,10 @@
 
 ## הטבלה בגוגל שיטס
 
-נוצרה בחשבון שלך:
+נמצאת בדרייב שלך, בתיקייה [CARWEB](https://drive.google.com/drive/folders/1Pw0dv-l1_2tKakhdHTeBCKmWpebLV2dk):
 **[לידים - מוסך טסט שנתי (בדיקה חינם)](https://docs.google.com/spreadsheets/d/15LWO63T9VoghSyaJdNU_aYdaUSoOubS8sFGLSFcsHH4/edit)**
+
+מזהה הגיליון (`SHEET_ID` ב-`google-apps-script.gs`) הוא `15LWO63T9VoghSyaJdNU_aYdaUSoOubS8sFGLSFcsHH4` והוא לא משתנה גם אם מעבירים את הקובץ בין תיקיות.
 
 עמודות: חותמת זמן · שם מלא · טלפון · דגם / סוג רכב · חודש הטסט · מקור הליד · הערות · סטטוס · תאריך תיאום
 
