@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>אוטופאס | מעבירים לך את הרכב טסט – בלי כאב ראש</title>
+<meta name="description" content="בדיקה מקדימה לטסט ללא עלות. אנחנו מאתרים את התקלות, מתקנים ולוקחים את הרכב למכון הרישוי במקומך. אתה רק מקבל הודעה שהרכב עבר טסט.">
+<meta property="og:title" content="אוטופאס | מעבירים לך את הרכב טסט – בלי כאב ראש">
+<meta property="og:description" content="בדיקה מקדימה לטסט ללא עלות. אנחנו מטפלים בהכל, אתה מקבל רכב עם טסט לשנה.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a href="#" class="logo" aria-label="אוטופאס - דף הבית">
+      <svg class="logo__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11l1.5-4.5A2 2 0 0 1 8.4 5h7.2a2 2 0 0 1 1.9 1.5L19 11m-14 0h14m-14 0a2 2 0 0 0-2 2v3h2m14-5a2 2 0 0 1 2 2v3h-2M5 16h14M5 16v2H3v-2m16 0v2h2v-2M7.5 13.5h1m7 0h1"/></svg>
+      <span class="logo__text">אוטו<b>פאס</b></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#how">איך זה עובד</a>
+      <a href="#check">מה בודקים</a>
+      <a href="#why">למה אנחנו</a>
+      <a href="#faq">שאלות נפוצות</a>
+    </nav>
+    <div class="header__actions">
+      <a href="tel:03-000-0000" class="btn btn--ghost btn--sm">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+        03-000-0000
+      </a>
+      <a href="#lead" class="btn btn--primary btn--sm">בדיקה חינם</a>
+      <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <span class="pill"><span class="pill__dot"></span> יש עדיין מקומות פנויים השבוע</span>
+      <h1>שונאים את הטסט?<br><span class="hl">תשאירו אותו לנו.</span></h1>
+      <p class="hero__sub">
+        בדיקה מקדימה <b>ללא עלות</b> — אנחנו מאתרים בדיוק מה יפיל את הרכב, מתקנים רק את מה שצריך,
+        ולוקחים את הרכב למכון הרישוי <b>במקומכם</b>. אתם מקבלים הודעה שהרכב עבר, ומפתחות ביד.
+      </p>
+      <ul class="hero__bullets">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> בדיקת 27 נקודות לפני טסט – 0 ₪</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> איסוף והחזרת רכב מהבית או מהעבודה</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> אנחנו עומדים בתור במכון הרישוי, לא אתם</li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg> לא עבר? מתקנים ומגישים שוב – בלי תוספת על הטיפול</li>
+      </ul>
+      <div class="hero__cta">
+        <a href="#lead" class="btn btn--primary btn--lg">אני רוצה בדיקה חינם</a>
+        <a href="tel:03-000-0000" class="btn btn--outline btn--lg">דברו איתי עכשיו</a>
+      </div>
+      <div class="hero__trust">
+        <div class="stars" aria-label="דירוג 4.9 מתוך 5">★★★★★</div>
+        <span><b>4.9/5</b> · 412 ביקורות · 11,000+ רכבים עברו טסט איתנו</span>
+      </div>
+    </div>
+
+    <!-- LEAD FORM -->
+    <div class="card-form" id="lead">
+      <div class="card-form__head">
+        <h2>קביעת בדיקה חינם</h2>
+        <p>משאירים שם וטלפון — חוזרים אליכם תוך <b>שעה</b> בשעות הפעילות.</p>
+      </div>
+      <form id="leadForm" novalidate>
+        <div class="field">
+          <label for="name">שם מלא <span>*</span></label>
+          <input type="text" id="name" name="name" placeholder="ישראל ישראלי" autocomplete="name" required>
+          <small class="err" data-err="name"></small>
+        </div>
+        <div class="field">
+          <label for="phone">טלפון נייד <span>*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="050-1234567" inputmode="tel" autocomplete="tel" required>
+          <small class="err" data-err="phone"></small>
+        </div>
+        <div class="field">
+          <label for="car">דגם / סוג רכב</label>
+          <input type="text" id="car" name="car" placeholder="מאזדה 3, 2016">
+        </div>
+        <div class="field">
+          <label for="month">מתי הטסט שלכם?</label>
+          <select id="month" name="month">
+            <option value="">בחרו מועד (לא חובה)</option>
+            <option>החודש – דחוף</option>
+            <option>החודש הבא</option>
+            <option>בעוד 2-3 חודשים</option>
+            <option>לא זוכר/ת</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="notes">משהו שכדאי שנדע?</label>
+          <textarea id="notes" name="notes" rows="2" placeholder="נורה דולקת בלוח, רעש בבלמים, כבר נפל בטסט..."></textarea>
+        </div>
+        <label class="check">
+          <input type="checkbox" id="consent" name="consent" checked>
+          <span>מאשר/ת שתחזרו אליי בטלפון או ב-SMS</span>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block btn--lg" id="submitBtn">
+          <span class="btn__label">שריינו לי בדיקה חינם</span>
+          <span class="spinner" aria-hidden="true"></span>
+        </button>
+        <p class="form-note">🔒 הפרטים נשמרים אצלנו בלבד. בלי ספאם, בלי התחייבות.</p>
+      </form>
+      <div class="form-success" id="formSuccess" hidden>
+        <div class="form-success__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <h3>קיבלנו! 🎉</h3>
+        <p>נציג שלנו יחזור אליכם תוך שעה בשעות הפעילות לתיאום הבדיקה.<br>רוצים להקדים? <a href="tel:03-000-0000">03-000-0000</a></p>
+        <button class="btn btn--outline btn--sm" id="resetForm">שליחת פנייה נוספת</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<section class="trustbar">
+  <div class="container trustbar__grid">
+    <div class="stat"><b data-count="11000">0</b><span>רכבים עברו טסט איתנו</span></div>
+    <div class="stat"><b data-count="96">0</b><span>% עוברים בפעם הראשונה</span></div>
+    <div class="stat"><b data-count="27">0</b><span>נקודות בבדיקה ללא עלות</span></div>
+    <div class="stat"><b data-count="1">0</b><span>שיחת טלפון וזהו</span></div>
+  </div>
+</section>
+
+<!-- ===== PAIN ===== -->
+<section class="section" id="pain">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">בואו נודה באמת</span>
+      <h2>הטסט הוא לא בדיקה. הוא יום חופש שנשרף.</h2>
+      <p>רוב הנהגים דוחים את הטסט לרגע האחרון בדיוק מהסיבות האלה:</p>
+    </div>
+    <div class="grid grid--4 reveal">
+      <div class="pain-card">
+        <span class="pain-card__emoji">🕐</span>
+        <h3>חצי יום בתור</h3>
+        <p>מגיעים למכון רישוי ב-7:00 בבוקר, יוצאים ב-11:00. ועוד צריך לקחת יום חופש מהעבודה.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-card__emoji">❌</span>
+        <h3>נופלים על שטות</h3>
+        <p>נורה שרופה, מגב קרוע או פליטה גבוהה — וחוזרים הביתה בלי טסט ועם עוד יום מבוזבז.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-card__emoji">💸</span>
+        <h3>לא יודעים כמה זה יעלה</h3>
+        <p>הפחד הגדול: להיכנס למוסך ולצאת עם חשבון של 4,000 ₪ שאף אחד לא הסביר.</p>
+      </div>
+      <div class="pain-card">
+        <span class="pain-card__emoji">🤷</span>
+        <h3>אין למי להאמין</h3>
+        <p>&laquo;צריך להחליף הכל&raquo; — בלי לראות, בלי הסבר, בלי אפשרות אמיתית להגיד לא.</p>
+      </div>
+    </div>
+    <p class="pain-punch">בנינו את השירות הזה בדיוק כדי שלא תצטרכו להתעסק עם אף אחד מהם.</p>
+  </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="section section--alt" id="how">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">התהליך</span>
+      <h2>4 שלבים. אתם עושים רק את הראשון.</h2>
+      <p>ברגע שהשארתם טלפון — כל השאר עלינו.</p>
+    </div>
+    <ol class="steps reveal">
+      <li class="step">
+        <span class="step__num">1</span>
+        <h3>שיחה של 3 דקות</h3>
+        <p>חוזרים אליכם, מתאמים שעה נוחה — או שולחים נהג שיאסוף את הרכב מהבית או מהעבודה.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">2</span>
+        <h3>בדיקת 27 נקודות – ללא עלות</h3>
+        <p>מעלים על ליפט ובודקים בדיוק לפי תקן מכון הרישוי. שולחים לכם דוח בוואטסאפ עם תמונות.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">3</span>
+        <h3>מאשרים מחיר לפני שנוגעים</h3>
+        <p>הצעת מחיר מפורטת: מה חובה לטסט, מה מומלץ, ומה יכול לחכות. בלי אישור שלכם — לא נוגעים.</p>
+      </li>
+      <li class="step">
+        <span class="step__num">4</span>
+        <h3>אנחנו בתור, אתם מקבלים טסט</h3>
+        <p>מגישים את הרכב במכון הרישוי, מטפלים באגרה ובביטוח החובה, ומחזירים לכם רכב עם רישיון לשנה.</p>
+      </li>
+    </ol>
+    <div class="center"><a href="#lead" class="btn btn--primary btn--lg">מתחילים – בדיקה ללא עלות</a></div>
+  </div>
+</section>
+
+<!-- ===== WHAT WE CHECK ===== -->
+<section class="section" id="check">
+  <div class="container check">
+    <div class="check__copy">
+      <span class="eyebrow">הבדיקה ללא עלות</span>
+      <h2>27 נקודות. בדיוק מה שבודקים במכון הרישוי.</h2>
+      <p>הבדיקה אורכת כ-40 דקות ואינה מחייבת אתכם בכלום. גם אם תחליטו לבצע את הטיפול במקום אחר — הדוח שלכם, בלי תשלום.</p>
+      <ul class="check__list">
+        <li>בלמים: רפידות, דיסקים, צינורות ובלם יד</li>
+        <li>מערכת היגוי, מוטות והגה</li>
+        <li>בולמי זעזועים, קפיצים ומתלים</li>
+        <li>צמיגים: עומק סוליה, סדקים ולחץ אוויר</li>
+        <li>תאורה מלאה: אורות, איתותים, פנסי בלימה ולוחית</li>
+        <li>מבחן פליטות ואגזוז (בנזין / דיזל)</li>
+        <li>שלדה, חלודה ונקודות ריתוך</li>
+        <li>שמשות, מגבים, מראות וחגורות בטיחות</li>
+        <li>נזילות שמן, מים ודלק</li>
+        <li>מצבר ונוריות אזהרה בלוח המחוונים</li>
+      </ul>
+      <div class="badge-note">
+        <b>מתמחים ברכבי בנזין, דיזל והיברידי.</b>
+        <span>מוסך מורשה משרד התחבורה. לא מטפלים ברכבים חשמליים — וזה בדיוק מה שהופך אותנו לחדים במנועי בעירה.</span>
+      </div>
+    </div>
+    <div class="check__panel">
+      <div class="report">
+        <div class="report__head">
+          <span>דוח בדיקה לדוגמה</span>
+          <span class="report__plate">12-345-67</span>
+        </div>
+        <div class="report__row report__row--ok"><span>בלמים קדמיים</span><b>תקין</b></div>
+        <div class="report__row report__row--ok"><span>תאורה והתראות</span><b>תקין</b></div>
+        <div class="report__row report__row--warn"><span>מגבים</span><b>מומלץ להחליף</b></div>
+        <div class="report__row report__row--bad"><span>צמיג אחורי ימין</span><b>חובה לטסט</b></div>
+        <div class="report__row report__row--ok"><span>פליטות</span><b>תקין</b></div>
+        <div class="report__row report__row--ok"><span>מתלים ובולמים</span><b>תקין</b></div>
+        <div class="report__total">
+          <span>עלות להעברת טסט</span>
+          <b>420 ₪</b>
+        </div>
+        <p class="report__note">מאושר על ידכם בוואטסאפ לפני שאנחנו מתחילים לעבוד.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMPARE / WHY ===== -->
+<section class="section section--alt" id="why">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">ההבדל</span>
+      <h2>לעשות טסט לבד מול לעשות טסט איתנו</h2>
+    </div>
+    <div class="compare reveal">
+      <div class="compare__col compare__col--bad">
+        <h3>לבד</h3>
+        <ul>
+          <li>יום חופש מהעבודה</li>
+          <li>תור במכון הרישוי מ-6:45 בבוקר</li>
+          <li>לגלות את התקלה רק אחרי שנפלתם</li>
+          <li>לרוץ למוסך ואז לחזור שוב למכון</li>
+          <li>לשלם אגרה, לחדש ביטוח, לעקוב לבד</li>
+          <li>מחיר שמתגלה רק בסוף</li>
+        </ul>
+      </div>
+      <div class="compare__col compare__col--good">
+        <span class="compare__tag">מומלץ</span>
+        <h3>איתנו</h3>
+        <ul>
+          <li>שיחת טלפון אחת. זהו.</li>
+          <li>אנחנו אוספים ומחזירים את הרכב</li>
+          <li>יודעים מראש מה עלול להפיל את הרכב</li>
+          <li>מתקנים ומגישים באותו יום</li>
+          <li>מטפלים באגרה ובביטוח החובה</li>
+          <li>מחיר סופי מאושר מראש בכתב</li>
+        </ul>
+      </div>
+    </div>
+    <div class="guarantee">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.4 8.8-8 10-4.6-1.2-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div>
+        <h3>התחייבות &laquo;עובר, או שאנחנו חוזרים&raquo;</h3>
+        <p>אם הרכב לא עבר טסט על ליקוי שטיפלנו בו — מתקנים ומגישים שוב על חשבוננו. אתם לא משלמים פעמיים על אותו טיפול.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="section" id="reviews">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">לקוחות</span>
+      <h2>מה אומרים אלה שכבר לא מתעסקים עם טסט</h2>
+    </div>
+    <div class="grid grid--3 reveal">
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>דחיתי את הטסט חודשיים. אספו לי את הרכב מהמשרד ב-9:00, ב-15:00 הוא חזר עם טסט לשנה. לא האמנתי שזה כזה פשוט.</blockquote>
+        <figcaption><b>דנה כ.</b><span>סקודה אוקטביה 2015 · רמת גן</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>הגעתי אחרי שנפלתי בטסט במקום אחר. עשו בדיקה ללא עלות, הראו לי בתמונות בדיוק מה הבעיה, אישרתי 380 ₪ וזהו. אפס לחץ למכור לי דברים.</blockquote>
+        <figcaption><b>אבי מ.</b><span>פורד פוקוס 2013 · פתח תקווה</span></figcaption>
+      </figure>
+      <figure class="quote">
+        <div class="stars">★★★★★</div>
+        <blockquote>בתור אמא לשלושה אין לי יום שלם לבזבז על תור במכון רישוי. זה השירות היחיד שבאמת חסך לי את זה — שנה שנייה ברציפות.</blockquote>
+        <figcaption><b>מיכל ר.</b><span>קיה ספורטאז&rsquo; 2018 · גבעתיים</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="section section--alt" id="faq">
+  <div class="container container--narrow">
+    <div class="section__head">
+      <span class="eyebrow">שאלות נפוצות</span>
+      <h2>מה שרוב האנשים שואלים לפני שהם משאירים טלפון</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>הבדיקה באמת ללא עלות? מה הקאץ&rsquo;?</summary>
+        <p>כן, 0 ₪ ובלי התחייבות. אנחנו מרוויחים רק אם תבחרו שנבצע את התיקון. אם תחליטו לקחת את הדוח וללכת למוסך אחר — זו זכותכם המלאה, והדוח נשאר שלכם.</p>
+      </details>
+      <details>
+        <summary>אתם באמת לוקחים את הרכב למכון הרישוי במקומי?</summary>
+        <p>כן. אנחנו מגישים את הרכב לטסט, עומדים בתור ומטפלים בבירוקרטיה, כולל תשלום האגרה וחידוש ביטוח החובה במידת הצורך. אתם מקבלים עדכון בוואטסאפ ברגע שהרכב עבר.</p>
+      </details>
+      <details>
+        <summary>כמה זמן הרכב אצלכם?</summary>
+        <p>ברוב המקרים יום עבודה אחד. בבדיקה בלבד — כ-40 דקות ואתם ממשיכים הלאה. אם נדרש חלק שצריך להזמין, נעדכן מראש בזמן המדויק.</p>
+      </details>
+      <details>
+        <summary>אפשר לדעת מראש כמה זה יעלה?</summary>
+        <p>תמיד. אחרי הבדיקה תקבלו הצעת מחיר מפורטת בוואטסאפ, מחולקת ל&laquo;חובה לטסט&raquo; ו&laquo;מומלץ אבל יכול לחכות&raquo;. לא מתחילים לעבוד בלי אישור שלכם.</p>
+      </details>
+      <details>
+        <summary>ומה אם הרכב לא עובר?</summary>
+        <p>אם הרכב נפל על ליקוי שטיפלנו בו — מתקנים ומגישים שוב בלי חיוב נוסף על אותו טיפול. אם התגלה ליקוי חדש שלא היה בבדיקה, נעדכן ונאשר איתכם לפני כל פעולה.</p>
+      </details>
+      <details>
+        <summary>אתם מטפלים ברכב חשמלי?</summary>
+        <p>לא. אנחנו מתמחים ברכבי בנזין, דיזל והיברידי בלבד — וזה בדיוק מה שמאפשר לנו להיות מדויקים ומהירים במנועי בעירה.</p>
+      </details>
+      <details>
+        <summary>הרכב שלי ישן / כבר נפל בטסט. יש טעם?</summary>
+        <p>דווקא אז הכי כדאי. רוב הרכבים שנופלים, נופלים על ליקויים זולים לתיקון. נעשה בדיקה ללא עלות ונגיד לכם בכנות אם שווה להשקיע — גם אם התשובה היא &laquo;לא&raquo;.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FINAL CTA ===== -->
+<section class="finalcta">
+  <div class="container finalcta__inner">
+    <div>
+      <h2>הטסט שלכם מתקרב. תנו לנו לטפל בזה.</h2>
+      <p>שם, טלפון — וסיימתם את החלק שלכם בסיפור.</p>
+      <div class="finalcta__actions">
+        <a href="#lead" class="btn btn--primary btn--lg">בדיקה ללא עלות – שריון מקום</a>
+        <a href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" class="btn btn--outline btn--lg" target="_blank" rel="noopener">וואטסאפ</a>
+      </div>
+    </div>
+    <div class="finalcta__hours">
+      <h3>שעות פעילות</h3>
+      <p>א&rsquo;–ה&rsquo; 07:30–18:00<br>ו&rsquo; 07:30–13:00</p>
+      <h3>כתובת</h3>
+      <p>רחוב התעשייה 12, אזור התעשייה<br>חניה חופשית ללקוחות</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <span>© <span id="year">2026</span> אוטופאס · מוסך מורשה משרד התחבורה · רישיון מס&rsquo; 00000</span>
+    <span><a href="tel:03-000-0000">03-000-0000</a> · <a href="mailto:info@autopass.co.il">info@autopass.co.il</a></span>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/972500000000?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" target="_blank" rel="noopener" aria-label="שליחת הודעה בוואטסאפ">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.2-4c-.3-.5-.7-1.2-.7-2.2s.5-1.5.7-1.7c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.1-.2.3-.1.5.3.5.7 1.1 1.2 1.5.6.5 1.1.7 1.4.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.2.1.6-.1 1z"/></svg>
+</a>
+
+<div class="mobile-bar">
+  <a href="tel:03-000-0000" class="btn btn--outline">📞 חייגו אלינו</a>
+  <a href="#lead" class="btn btn--primary">בדיקה ללא עלות</a>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
