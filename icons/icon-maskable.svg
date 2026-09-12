@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#1f2b3b"/><stop offset="1" stop-color="#0b1016"/>
+  </linearGradient>
+  <radialGradient id="glow" cx=".5" cy=".5" r=".55">
+    <stop offset="0" stop-color="#ff8a1f" stop-opacity=".32"/><stop offset="1" stop-color="#ff8a1f" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#ffc063"/><stop offset="1" stop-color="#ff7a0f"/>
+  </linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#d6ebff"/><stop offset="1" stop-color="#7fa6cc"/>
+  </linearGradient></defs>
+<g><rect width="512" height="512" fill="url(#bg)"/><rect width="512" height="512" fill="url(#glow)"/><g transform="translate(256 256) scale(.8) translate(-256 -256)"><g transform="translate(0 -10)">
+  <ellipse cx="256" cy="372" rx="204" ry="11" fill="#000" opacity=".35"/>
+  <path d="M70 300C70 272 86 258 112 254L178 246L218 196Q224 186 236 186L330 186Q344 186 352 196L390 244L420 250C436 254 442 266 442 284L442 314Q442 326 430 326L82 326Q70 326 70 314Z" fill="url(#body)"/>
+  <path d="M190 244L226 201Q230 197 237 197L278 197L278 244Z" fill="url(#glass)"/>
+  <path d="M292 197L327 197Q334 197 339 203L373 244L292 244Z" fill="url(#glass)"/>
+  <rect x="96" y="276" width="330" height="5" rx="2.5" fill="#000" opacity=".14"/>
+  <rect x="74" y="268" width="28" height="13" rx="6.5" fill="#fff7cf"/>
+  <rect x="430" y="264" width="10" height="18" rx="4" fill="#ff4d4d"/>
+  <circle cx="150" cy="326" r="46" fill="#141c27"/><circle cx="150" cy="326" r="35" fill="#2b3646"/><circle cx="150" cy="326" r="14" fill="#ffc063"/>
+  <circle cx="362" cy="326" r="46" fill="#141c27"/><circle cx="362" cy="326" r="35" fill="#2b3646"/><circle cx="362" cy="326" r="14" fill="#ffc063"/></g><circle cx="390" cy="126" r="60" fill="#35c98a" stroke="#0f1620" stroke-width="10"/>
+  <path d="M361 127L381 147L419 107" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="166" y="392" width="180" height="76" rx="38" fill="url(#body)"/>
+  <text x="256" y="431" text-anchor="middle" dominant-baseline="central" font-family="Heebo, Arial, sans-serif" font-size="60" font-weight="900" fill="#1a1000">טסט</text></g></g>
+</svg>
