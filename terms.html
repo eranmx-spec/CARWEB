@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body class="legal-body">
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
 
 <header class="header is-stuck">
   <div class="container header__inner">
@@ -27,7 +28,7 @@
   </div>
 </header>
 
-<main class="legal">
+<main class="legal" id="main" tabindex="-1">
   <div class="container container--narrow">
 
     <h1>תקנון השימוש באתר ומדיניות הפרטיות</h1>
@@ -206,10 +207,11 @@
 <footer class="footer">
   <div class="container footer__inner">
     <span>© <span id="year">2026</span> אוטופאס · כל הזכויות שמורות</span>
-    <span><a href="index.html">דף הבית</a> · <a href="terms.html">תקנון ומדיניות פרטיות</a></span>
+    <span><a href="index.html">דף הבית</a> · <a href="terms.html" aria-current="page">תקנון ומדיניות פרטיות</a> · <a href="accessibility.html">הצהרת נגישות</a></span>
   </div>
 </footer>
 
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="a11y.js"></script>
 </body>
 </html>

@@ -29,6 +29,13 @@ navToggle.addEventListener('click', () => {
   const open = nav.classList.toggle('is-open');
   navToggle.setAttribute('aria-expanded', String(open));
 });
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+    nav.classList.remove('is-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.focus();
+  }
+});
 $$('#nav a').forEach(a => a.addEventListener('click', () => {
   nav.classList.remove('is-open');
   navToggle.setAttribute('aria-expanded', 'false');
@@ -48,6 +55,14 @@ const countIO = new IntersectionObserver(entries => {
     if (!e.isIntersecting) return;
     const el = e.target;
     const target = Number(el.dataset.count);
+    // עצירת אנימציות (תפריט נגישות / הגדרת מערכת) – מציגים את הערך הסופי מיד
+    const motionOff = document.documentElement.classList.contains('a11y-motion') ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (motionOff) {
+      el.textContent = target.toLocaleString('he-IL') + (target >= 1000 ? '+' : '');
+      countIO.unobserve(el);
+      return;
+    }
     const dur = 1200;
     const start = performance.now();
     const tick = now => {
@@ -81,6 +96,7 @@ const showError = (name, msg) => {
   const box = $(`[data-err="${name}"]`);
   if (box) box.textContent = msg || '';
   input.classList.toggle('invalid', Boolean(msg));
+  input.setAttribute('aria-invalid', msg ? 'true' : 'false');
 };
 
 const validate = data => {
@@ -174,6 +190,7 @@ form.addEventListener('submit', async e => {
     form.hidden = true;
     successBox.hidden = false;
     successBox.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    $('#successTitle').focus({ preventScroll: true });
     if (typeof gtag === 'function') gtag('event', 'generate_lead');
     if (typeof fbq === 'function') fbq('track', 'Lead');
   }

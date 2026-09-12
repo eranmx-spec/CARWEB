@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<a class="skip-link" href="#main">דלג לתוכן הראשי</a>
 
 <!-- ===== HEADER ===== -->
 <header class="header" id="header">
@@ -40,17 +41,19 @@
         וואטסאפ
       </a>
       <a href="#lead" class="btn btn--primary btn--sm">בדיקה חינם</a>
-      <button class="nav-toggle" id="navToggle" aria-label="תפריט" aria-expanded="false"><span></span><span></span><span></span></button>
+      <button class="nav-toggle" id="navToggle" aria-label="תפריט ניווט" aria-controls="nav" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
+
+<main id="main" tabindex="-1">
 
 <!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero__bg" aria-hidden="true"></div>
   <div class="container hero__inner">
     <div class="hero__copy">
-      <span class="pill"><span class="pill__dot"></span> יש עדיין מקומות פנויים השבוע</span>
+      <span class="pill"><span class="pill__dot" aria-hidden="true"></span> יש עדיין מקומות פנויים השבוע</span>
       <h1>שונאים את הטסט?<br><span class="hl">תשאירו אותו לנו.</span></h1>
       <p class="hero__sub">
         בדיקה מקדימה <b>ללא עלות</b> — אנחנו מאתרים בדיוק מה יפיל את הרכב, מתקנים רק את מה שצריך,
@@ -70,11 +73,11 @@
         <a href="#lead" class="btn btn--primary btn--lg">או השאירו פרטים ונחזור אליכם</a>
       </div>
       <p class="hero__wa-note">
-        💬 <b>הדרך המהירה ביותר לתאם:</b> וואטסאפ ל-<a href="https://wa.me/972559272777?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" target="_blank" rel="noopener">055-927-2777</a>.
+        <span aria-hidden="true">💬</span> <b>הדרך המהירה ביותר לתאם:</b> וואטסאפ ל-<a href="https://wa.me/972559272777?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" target="_blank" rel="noopener">055-927-2777</a>.
         מענה אנושי תוך דקות בשעות הפעילות — בלי להמתין על הקו ובלי מוקד.
       </p>
       <div class="hero__trust">
-        <div class="stars" aria-label="דירוג 4.9 מתוך 5">★★★★★</div>
+        <div class="stars" role="img" aria-label="דירוג 4.9 מתוך 5 כוכבים">★★★★★</div>
         <span><b>4.9/5</b> · 412 ביקורות · 11,000+ רכבים עברו טסט איתנו</span>
       </div>
     </div>
@@ -87,14 +90,14 @@
       </div>
       <form id="leadForm" novalidate>
         <div class="field">
-          <label for="name">שם מלא <span>*</span></label>
-          <input type="text" id="name" name="name" placeholder="ישראל ישראלי" autocomplete="name" required>
-          <small class="err" data-err="name"></small>
+          <label for="name">שם מלא <span aria-hidden="true">*</span></label>
+          <input type="text" id="name" name="name" placeholder="ישראל ישראלי" autocomplete="name" required aria-describedby="name-err">
+          <small class="err" id="name-err" data-err="name" aria-live="polite"></small>
         </div>
         <div class="field">
-          <label for="phone">טלפון נייד <span>*</span></label>
-          <input type="tel" id="phone" name="phone" placeholder="050-1234567" inputmode="tel" autocomplete="tel" required>
-          <small class="err" data-err="phone"></small>
+          <label for="phone">טלפון נייד <span aria-hidden="true">*</span></label>
+          <input type="tel" id="phone" name="phone" placeholder="050-1234567" inputmode="tel" autocomplete="tel" required aria-describedby="phone-err">
+          <small class="err" id="phone-err" data-err="phone" aria-live="polite"></small>
         </div>
         <div class="field">
           <label for="car">דגם / סוג רכב</label>
@@ -122,7 +125,7 @@
           <span class="btn__label">שריינו לי בדיקה חינם</span>
           <span class="spinner" aria-hidden="true"></span>
         </button>
-        <p class="form-note">🔒 הפרטים נשמרים אצלנו בלבד. בלי ספאם, בלי התחייבות.</p>
+        <p class="form-note"><span aria-hidden="true">🔒</span> הפרטים נשמרים אצלנו בלבד. בלי ספאם, בלי התחייבות.</p>
         <p class="form-legal">שליחת הפרטים מהווה אישור לכך שקראתם והסכמתם ל<a href="terms.html">תקנון האתר ולמדיניות הפרטיות</a>.</p>
         <div class="or-wa">
           <span class="or-wa__sep">או שפשוט כותבים לנו</span>
@@ -132,9 +135,9 @@
           </a>
         </div>
       </form>
-      <div class="form-success" id="formSuccess" hidden>
+      <div class="form-success" id="formSuccess" role="status" aria-live="polite" hidden>
         <div class="form-success__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg></div>
-        <h3>קיבלנו! 🎉</h3>
+        <h3 id="successTitle" tabindex="-1">קיבלנו! <span aria-hidden="true">🎉</span></h3>
         <p>נציג שלנו יחזור אליכם תוך שעה בשעות הפעילות לתיאום הבדיקה.<br><b>רוצים תשובה כבר עכשיו?</b> כתבו לנו בוואטסאפ ונענה תוך דקות.</p>
         <a href="https://wa.me/972559272777?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%A9%D7%90%D7%A8%D7%AA%D7%99%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%91%D7%90%D7%AA%D7%A8%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%96%D7%A8%D7%96" target="_blank" rel="noopener" class="btn btn--wa btn--block">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-1.7-.1-.4-.1-.9-.3-1.5-.6a11 11 0 0 1-4.2-4c-.3-.5-.7-1.2-.7-2.2s.5-1.5.7-1.7c.2-.2.4-.3.6-.3h.5c.2 0 .4 0 .5.4l.7 1.7c.1.2 0 .4-.1.5l-.3.4c-.1.1-.2.3-.1.5.3.5.7 1.1 1.2 1.5.6.5 1.1.7 1.4.9.2.1.4.1.5-.1l.6-.7c.1-.2.3-.2.5-.1l1.6.8c.2.1.4.2.4.3.1.2.1.6-.1 1z"/></svg>
@@ -166,22 +169,22 @@
     </div>
     <div class="grid grid--4 reveal">
       <div class="pain-card">
-        <span class="pain-card__emoji">🕐</span>
+        <span class="pain-card__emoji" aria-hidden="true">🕐</span>
         <h3>חצי יום בתור</h3>
         <p>מגיעים למכון רישוי ב-7:00 בבוקר, יוצאים ב-11:00. ועוד צריך לקחת יום חופש מהעבודה.</p>
       </div>
       <div class="pain-card">
-        <span class="pain-card__emoji">❌</span>
+        <span class="pain-card__emoji" aria-hidden="true">❌</span>
         <h3>נופלים על שטות</h3>
         <p>נורה שרופה, מגב קרוע או פליטה גבוהה — וחוזרים הביתה בלי טסט ועם עוד יום מבוזבז.</p>
       </div>
       <div class="pain-card">
-        <span class="pain-card__emoji">💸</span>
+        <span class="pain-card__emoji" aria-hidden="true">💸</span>
         <h3>לא יודעים כמה זה יעלה</h3>
         <p>הפחד הגדול: להיכנס למוסך ולצאת עם חשבון של 4,000 ₪ שאף אחד לא הסביר.</p>
       </div>
       <div class="pain-card">
-        <span class="pain-card__emoji">🤷</span>
+        <span class="pain-card__emoji" aria-hidden="true">🤷</span>
         <h3>אין למי להאמין</h3>
         <p>&laquo;צריך להחליף הכל&raquo; — בלי לראות, בלי הסבר, בלי אפשרות אמיתית להגיד לא.</p>
       </div>
@@ -321,17 +324,17 @@
     </div>
     <div class="grid grid--3 reveal">
       <figure class="quote">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 כוכבים מתוך 5">★★★★★</div>
         <blockquote>דחיתי את הטסט חודשיים. אספו לי את הרכב מהמשרד ב-9:00, ב-15:00 הוא חזר עם טסט לשנה. לא האמנתי שזה כזה פשוט.</blockquote>
         <figcaption><b>דנה כ.</b><span>סקודה אוקטביה 2015 · רמת גן</span></figcaption>
       </figure>
       <figure class="quote">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 כוכבים מתוך 5">★★★★★</div>
         <blockquote>הגעתי אחרי שנפלתי בטסט במקום אחר. עשו בדיקה ללא עלות, הראו לי בתמונות בדיוק מה הבעיה, אישרתי 380 ₪ וזהו. אפס לחץ למכור לי דברים.</blockquote>
         <figcaption><b>אבי מ.</b><span>פורד פוקוס 2013 · פתח תקווה</span></figcaption>
       </figure>
       <figure class="quote">
-        <div class="stars">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 כוכבים מתוך 5">★★★★★</div>
         <blockquote>בתור אמא לשלושה אין לי יום שלם לבזבז על תור במכון רישוי. זה השירות היחיד שבאמת חסך לי את זה — שנה שנייה ברציפות.</blockquote>
         <figcaption><b>מיכל ר.</b><span>קיה ספורטאז&rsquo; 2018 · גבעתיים</span></figcaption>
       </figure>
@@ -447,10 +450,12 @@
   </div>
 </section>
 
+</main>
+
 <footer class="footer">
   <div class="container footer__inner">
     <span>© <span id="year">2026</span> אוטופאס · מוסך מורשה משרד התחבורה · רישיון מס&rsquo; 00000</span>
-    <span>וואטסאפ: <a href="https://wa.me/972559272777?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" target="_blank" rel="noopener">055-927-2777</a> · <a href="mailto:info@autopass.co.il">info@autopass.co.il</a> · <a href="terms.html" class="footer__legal">תקנון ומדיניות פרטיות</a></span>
+    <span>וואטסאפ: <a href="https://wa.me/972559272777?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%90%D7%9D%20%D7%91%D7%93%D7%99%D7%A7%D7%94%20%D7%9C%D7%A4%D7%A0%D7%99%20%D7%98%D7%A1%D7%98" target="_blank" rel="noopener">055-927-2777</a> · <a href="mailto:info@autopass.co.il">info@autopass.co.il</a> · <a href="terms.html" class="footer__legal">תקנון ומדיניות פרטיות</a> · <a href="accessibility.html" class="footer__legal">הצהרת נגישות</a></span>
   </div>
 </footer>
 
@@ -467,5 +472,6 @@
 </div>
 
 <script src="script.js"></script>
+<script src="a11y.js"></script>
 </body>
 </html>
