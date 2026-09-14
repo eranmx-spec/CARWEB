@@ -622,6 +622,68 @@ html.a11y-cursor :is(a,button,summary,label,select),html.a11y-cursor :is(a,butto
 /* הדגשת מיקוד מוגברת */
 html.a11y-focus :focus{outline:4px solid #ffd400!important;outline-offset:4px!important;box-shadow:0 0 0 9px #000!important}
 
+/* ==========================================================
+   עיצוב מוסך – רקעים מצולמים, שלבי התהליך וגלריה
+   כל שכבת החשכה מחושבת לניגודיות AA גם מעל האזור הבהיר ביותר בתמונה
+   ========================================================== */
+/* רקע מוסך קבוע מאחורי כל העמוד הראשי */
+body:not(.legal-body)::before{
+  content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(rgba(9,13,19,.9),rgba(9,13,19,.9)),url("img/garage-bg.webp") center/cover no-repeat;
+}
+.section--alt{background:rgba(17,24,33,.9)}
+.wa-section{background:radial-gradient(600px 340px at 82% 18%,rgba(37,211,102,.12),transparent 62%),rgba(9,13,19,.72)}
+
+/* היירו – תמונת מוסך מלאה; כהה בצד הטקסט, פתוחה יותר באמצע */
+.hero__bg{
+  background:
+    linear-gradient(180deg,rgba(9,13,19,0) 62%,rgba(9,13,19,.96) 100%),
+    linear-gradient(to left,rgba(9,13,19,.93) 0%,rgba(9,13,19,.86) 50%,rgba(9,13,19,.45) 74%,rgba(9,13,19,.82) 100%),
+    url("img/hero.webp") center/cover no-repeat;
+}
+.hero__bg::after{display:none}
+
+/* שלבי התהליך עם תמונה */
+.step{padding:0;display:flex;flex-direction:column;overflow:hidden}
+.step__img{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:cover}
+.step__body{position:relative;flex:1;padding:30px 22px 22px}
+.step__num{top:-19px;box-shadow:0 0 0 4px var(--ink),0 6px 18px rgba(255,138,31,.35)}
+
+/* גלריית המוסך */
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.gallery__item{position:relative;margin:0;overflow:hidden;border-radius:var(--radius);border:1px solid var(--line);background:var(--ink-3)}
+.gallery__item--big{grid-column:span 2;grid-row:span 2}
+.gallery__item--wide{grid-column:span 2}
+.gallery__item img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.gallery__item:hover img{transform:scale(1.04)}
+.gallery__item figcaption{
+  position:absolute;inset-inline:0;bottom:0;padding:40px 16px 14px;
+  background:linear-gradient(180deg,rgba(5,8,12,0),rgba(5,8,12,.8) 45%,rgba(5,8,12,.95));
+  color:#fff;font-weight:800;font-size:1rem;line-height:1.35;
+}
+.gallery__item figcaption span{display:block;margin-top:2px;font-weight:400;font-size:.84rem;color:#c8d4e0}
+
+/* CTA סופי על רקע מוסך */
+.finalcta{background:linear-gradient(to left,rgba(9,13,19,.94),rgba(9,13,19,.85) 60%,rgba(9,13,19,.92)),url("img/cta.webp") center/cover no-repeat}
+
+@media (max-width:980px){
+  .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
+  .gallery__item--big{grid-row:span 1}
+}
+@media (max-width:760px){
+  .hero__bg{background:linear-gradient(rgba(9,13,19,.78),rgba(9,13,19,.9)),url("img/hero-sm.webp") center/cover no-repeat}
+  .finalcta{background:linear-gradient(rgba(9,13,19,.88),rgba(9,13,19,.92)),url("img/cta.webp") center/cover no-repeat}
+}
+@media (max-width:560px){
+  .gallery{grid-template-columns:1fr;grid-auto-rows:230px}
+  .gallery__item--big,.gallery__item--wide{grid-column:auto}
+}
+
+/* מצבי תפריט הנגישות */
+html.a11y-contrast body::before{display:none}
+html.a11y-contrast .gallery__item figcaption{background-color:#000!important}
+html.a11y-gray body::before{filter:grayscale(1)}
+
 /* ---------- reveal ---------- */
 .reveal>*{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.is-visible>*{opacity:1;transform:none}

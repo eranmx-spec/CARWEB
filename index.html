@@ -23,6 +23,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<link rel="preload" as="image" href="img/hero-sm.webp" type="image/webp" media="(max-width: 760px)" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero.webp" type="image/webp" media="(min-width: 761px)" fetchpriority="high">
 </head>
 <body>
 <a class="skip-link" href="#main">דלג לתוכן הראשי</a>
@@ -209,24 +211,36 @@
     </div>
     <ol class="steps reveal">
       <li class="step">
-        <span class="step__num">1</span>
-        <h3>שיחה של 3 דקות</h3>
-        <p>חוזרים אליכם, מתאמים שעה נוחה — או שולחים נהג שיאסוף את הרכב מהבית או מהעבודה.</p>
+        <img class="step__img" src="img/step-1.webp" width="560" height="560" loading="lazy" decoding="async" alt="לקוחה מתאמת בדיקה לפני טסט דרך הטאבלט">
+        <div class="step__body">
+          <span class="step__num">1</span>
+          <h3>שיחה של 3 דקות</h3>
+          <p>חוזרים אליכם, מתאמים שעה נוחה — או שולחים נהג שיאסוף את הרכב מהבית או מהעבודה.</p>
+        </div>
       </li>
       <li class="step">
-        <span class="step__num">2</span>
-        <h3>בדיקת 27 נקודות – ללא עלות</h3>
-        <p>מעלים על ליפט ובודקים בדיוק לפי תקן מכון הרישוי. שולחים לכם דוח בוואטסאפ עם תמונות.</p>
+        <img class="step__img" src="img/step-2.webp" width="560" height="560" loading="lazy" decoding="async" alt="מכונאי בודק רכב המורם על ליפט לפי רשימת בדיקות הטסט">
+        <div class="step__body">
+          <span class="step__num">2</span>
+          <h3>בדיקת 27 נקודות – ללא עלות</h3>
+          <p>מעלים על ליפט ובודקים בדיוק לפי תקן מכון הרישוי. שולחים לכם דוח בוואטסאפ עם תמונות.</p>
+        </div>
       </li>
       <li class="step">
-        <span class="step__num">3</span>
-        <h3>מאשרים מחיר לפני שנוגעים</h3>
-        <p>הצעת מחיר מפורטת: מה חובה לטסט, מה מומלץ, ומה יכול לחכות. בלי אישור שלכם — לא נוגעים.</p>
+        <img class="step__img" src="img/step-3.webp" width="560" height="560" loading="lazy" decoding="async" alt="לקוח עובר על פירוט הבדיקה בטאבלט לפני שהוא מאשר את הטיפול">
+        <div class="step__body">
+          <span class="step__num">3</span>
+          <h3>מאשרים מחיר לפני שנוגעים</h3>
+          <p>הצעת מחיר מפורטת: מה חובה לטסט, מה מומלץ, ומה יכול לחכות. בלי אישור שלכם — לא נוגעים.</p>
+        </div>
       </li>
       <li class="step">
-        <span class="step__num">4</span>
-        <h3>אנחנו בתור, אתם מקבלים טסט</h3>
-        <p>מגישים את הרכב במכון הרישוי, מטפלים באגרה ובביטוח החובה, ומחזירים לכם רכב עם רישיון לשנה.</p>
+        <img class="step__img" src="img/step-4.webp" width="560" height="560" loading="lazy" decoding="async" alt="נציגת שירות מציגה ללקוח דוח שהרכב עבר טסט בהצלחה">
+        <div class="step__body">
+          <span class="step__num">4</span>
+          <h3>אנחנו בתור, אתם מקבלים טסט</h3>
+          <p>מגישים את הרכב במכון הרישוי, מטפלים באגרה ובביטוח החובה, ומחזירים לכם רכב עם רישיון לשנה.</p>
+        </div>
       </li>
     </ol>
     <div class="center"><a href="#lead" class="btn btn--primary btn--lg">מתחילים – בדיקה ללא עלות</a></div>
@@ -275,6 +289,35 @@
         </div>
         <p class="report__note">מאושר על ידכם בוואטסאפ לפני שאנחנו מתחילים לעבוד.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GARAGE GALLERY ===== -->
+<section class="section" id="garage" aria-labelledby="garage-title">
+  <div class="container">
+    <div class="section__head">
+      <span class="eyebrow">מאחורי הקלעים</span>
+      <h2 id="garage-title">ציוד מקצועי. צוות מיומן. בלי קיצורי דרך.</h2>
+      <p>כל רכב עולה על ליפט ועובר בדיקה יסודית וממוחשבת – עוד לפני שהוא מגיע למכון הרישוי.</p>
+    </div>
+    <div class="gallery reveal">
+      <figure class="gallery__item gallery__item--big">
+        <img src="img/gal-lift.webp" width="760" height="570" loading="lazy" decoding="async" alt="מכונאי בודק גלגל ומתלה של רכב כסוף המורם על ליפט">
+        <figcaption>בדיקת מתלים ובלמים על ליפט<span>כל רכב מורם ונבדק גם מלמטה</span></figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="img/gal-diagnostics.webp" width="760" height="570" loading="lazy" decoding="async" alt="מכונאי מחבר מחשב אבחון למנוע של רכב אדום עם מכסה מנוע פתוח">
+        <figcaption>אבחון מנוע ממוחשב<span>מאתרים תקלות לפני שהן מפילות בטסט</span></figcaption>
+      </figure>
+      <figure class="gallery__item">
+        <img src="img/gal-tires.webp" width="760" height="570" loading="lazy" decoding="async" alt="מכונאי מאזן גלגל במכונת איזון צמיגים">
+        <figcaption>איזון והחלפת צמיגים<span>עומק סוליה, לחץ ואיזון</span></figcaption>
+      </figure>
+      <figure class="gallery__item gallery__item--wide">
+        <img src="img/gal-inspection.webp" width="760" height="570" loading="lazy" decoding="async" alt="טכנאית בודקת את תחתית רכב לבן המורם על ליפט">
+        <figcaption>בדיקת תחתית, פליטה ובלמים<span>לפי רשימת הבדיקות של מכון הרישוי</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
