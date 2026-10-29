@@ -176,3 +176,50 @@ www  →  eranmx-spec.github.io.
 - Meta Pixel → `fbq('track','Lead')`
 
 מספיק להדביק את סקריפט הפיקסל ב-`<head>` של `index.html`.
+
+## תמונות מהשטח (`img/shop-*`, `img/client-*`)
+
+תמונות סטוק מ-[Unsplash](https://unsplash.com/license): חינם לשימוש מסחרי, בלי חובת קרדיט.
+**מומלץ להחליף בהדרגה בתמונות אמיתיות מהמוסך ומלקוחות** (באישורם) – אותו שם קובץ, יחס 4:3 למוסך ו-4:5 ללקוחות.
+`shop-11` נחתך מ-`CarPic/Gemini_Generated_Image_nsbc…jpg`.
+
+| קובץ | מקור |
+|---|---|
+| shop-01 | unsplash.com/photos/rU_bvNfr8pQ |
+| shop-02 | unsplash.com/photos/SQlUL097Uys |
+| shop-03 | unsplash.com/photos/RVCRYUnf5zo |
+| shop-04 | unsplash.com/photos/XP8o9_Arwqg |
+| shop-05 | unsplash.com/photos/n99UTGfbvFQ |
+| shop-06 | images.unsplash.com/photo-1687462970787-61d953508926 |
+| shop-07 | images.unsplash.com/photo-1667013875749-55fc238fa984 |
+| shop-08 | unsplash.com/photos/FHrxSBfNzLw |
+| shop-09 | unsplash.com/photos/iFQpqbLMOFU |
+| shop-10 | images.unsplash.com/photo-1771340012378-3c86cb649193 |
+| client-01 | images.unsplash.com/photo-1634055739897-b6a98a80114a |
+| client-02 | images.unsplash.com/photo-1618298363483-e31a31f1a1e2 |
+| client-03 | images.unsplash.com/photo-1534708112740-cb40ecb0663e |
+| client-04 | images.unsplash.com/photo-1727893512947-8bdc773ceb02 |
+| client-05 | images.unsplash.com/photo-1678345201361-f070f85b62a5 |
+| client-06 | images.unsplash.com/photo-1748841354578-bc895112c5bd |
+
+## הודעת "נחזור אליך" אחרי וואטסאפ
+
+**באתר:** כל לחיצה על קישור וואטסאפ פותחת את הצ׳אט כרגיל, ובמקביל מוצג באתר חלון אישור מעוצב
+("קיבלנו את ההודעה שלך – נחזור אליך לתיאום"). זמן החזרה מחושב לפי שעות הפעילות (שעון ישראל):
+בשעות הפעילות "תוך דקות", ומחוץ להן "מחר / ביום ראשון מ-07:30". שעות הפעילות מוגדרות ב-`script.js` (`OPEN`, `closeAt`).
+
+**בתוך וואטסאפ עצמו** – מגדירים פעם אחת באפליקציית WhatsApp Business:
+כלים לעסקים → **הודעת פתיחה** (וגם **הודעת היעדרות** לשעות שמחוץ לפעילות). נוסח מוצע:
+
+```
+היי 👋 תודה שפנית לאוטופאס!
+קיבלנו את ההודעה שלך ✅
+נציג מהמוסך יחזור אליך בהקדם כדי לתאם בדיקה והכנה לטסט (150 ₪).
+
+כדי שנתאם מהר יותר, שלחו לנו:
+🚗 דגם ושנת ייצור
+📅 מתי פג הטסט
+📍 מאיפה לאסוף את הרכב (בית / עבודה)
+
+שעות פעילות: א׳–ה׳ 07:30–18:00 · ו׳ 07:30–13:00
+```

@@ -684,6 +684,238 @@ html.a11y-contrast body::before{display:none}
 html.a11y-contrast .gallery__item figcaption{background-color:#000!important}
 html.a11y-gray body::before{filter:grayscale(1)}
 
+/* ==========================================================
+   תמונות מהשטח, לקוחות, אישור וואטסאפ ותנועה
+   ========================================================== */
+/* היירו – כניסה מדורגת ותנועת מצלמה איטית ברקע */
+.hero__bg{animation:heroDrift 26s ease-in-out infinite alternate;transform-origin:30% 50%}
+@keyframes heroDrift{from{transform:scale(1)}to{transform:scale(1.07) translateX(-1.2%)}}
+.hero__copy>*,.hero .card-form{animation:riseIn .8s cubic-bezier(.2,.7,.2,1) both}
+.hero__copy>:nth-child(2){animation-delay:.08s}
+.hero__copy>:nth-child(3){animation-delay:.16s}
+.hero__copy>:nth-child(4){animation-delay:.24s}
+.hero__copy>:nth-child(5){animation-delay:.32s}
+.hero__copy>:nth-child(n+6){animation-delay:.4s}
+.hero .card-form{animation-delay:.3s}
+@keyframes riseIn{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* ברק עובר על כפתורי הפעולה הגדולים */
+.btn--lg{position:relative;overflow:hidden;isolation:isolate}
+.btn--lg::after{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.38) 50%,transparent 65%);
+  transform:translateX(120%);animation:shine 4.5s ease-in-out infinite;
+}
+.btn--outline.btn--lg::after{display:none}
+@keyframes shine{0%,62%{transform:translateX(120%)}82%,100%{transform:translateX(-120%)}}
+
+/* סרט תמונות נע – בהיירו, מתחת לכותרת */
+.hero__copy{min-width:0}
+.strip{position:relative;margin:4px 0 22px}
+.strip__toggle{
+  position:absolute;top:8px;left:8px;z-index:2;width:40px;height:40px;padding:0;
+  display:grid;place-items:center;border-radius:50%;
+  background:rgba(9,13,19,.72);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);
+  font:inherit;font-size:.8rem;cursor:pointer;transition:border-color .2s,background .2s;
+}
+.strip__toggle:hover{border-color:var(--brand);background:rgba(9,13,19,.9)}
+.strip__toggle-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.strip__toggle-play,.strip.is-paused .strip__toggle-pause{display:none}
+.strip.is-paused .strip__toggle-play{display:inline}
+.strip__viewport{
+  overflow:hidden;border-radius:16px;
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+}
+.strip__track{display:flex;gap:10px;padding-inline-end:10px;width:max-content;animation:stripRun 55s linear infinite}
+.strip:hover .strip__track,.strip:focus-within .strip__track,.strip.is-paused .strip__track{animation-play-state:paused}
+@keyframes stripRun{to{transform:translateX(50%)}}
+.strip__item{
+  position:relative;flex:0 0 auto;width:clamp(180px,17vw,220px);aspect-ratio:4/3;
+  border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3);
+}
+.strip__item img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04);transition:transform .6s ease,filter .4s}
+.strip__item:hover img{transform:scale(1.06);filter:none}
+.strip__item span{
+  position:absolute;inset-inline:0;bottom:0;padding:24px 10px 8px;font-weight:700;font-size:.8rem;line-height:1.3;color:#fff;
+  background:linear-gradient(180deg,rgba(5,8,12,0),rgba(5,8,12,.88) 55%);
+}
+
+/* לקוחות מרוצים */
+.clients{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
+.client{position:relative;aspect-ratio:4/5;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3)}
+.client img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.client:hover img{transform:scale(1.05)}
+.client::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,8,12,0) 50%,rgba(5,8,12,.9));pointer-events:none}
+.client__badge{
+  position:absolute;top:10px;inset-inline-start:10px;z-index:1;
+  background:var(--ok);color:#03190f;font-weight:800;font-size:.78rem;padding:.25em .7em;border-radius:999px;
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+}
+.client__line{position:absolute;inset-inline:10px;bottom:10px;z-index:1;font-weight:700;font-size:.86rem;line-height:1.3;color:#fff}
+.clients.is-visible .client__badge{animation:badgePop .5s cubic-bezier(.3,1.6,.5,1) both;animation-delay:inherit}
+.clients.is-visible>:nth-child(1) .client__badge{animation-delay:.35s}
+.clients.is-visible>:nth-child(2) .client__badge{animation-delay:.45s}
+.clients.is-visible>:nth-child(3) .client__badge{animation-delay:.55s}
+.clients.is-visible>:nth-child(4) .client__badge{animation-delay:.65s}
+.clients.is-visible>:nth-child(5) .client__badge{animation-delay:.75s}
+.clients.is-visible>:nth-child(6) .client__badge{animation-delay:.85s}
+@keyframes badgePop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:none}}
+
+/* חלון אישור אחרי וואטסאפ */
+body.has-modal{overflow:hidden}
+.wa-confirm{position:fixed;inset:0;z-index:200;display:grid;place-items:center;padding:16px}
+.wa-confirm[hidden]{display:none}
+.wa-confirm__backdrop{position:absolute;inset:0;background:rgba(3,6,10,.72);backdrop-filter:blur(6px)}
+.wa-confirm__card{
+  position:relative;width:min(430px,100%);max-height:calc(100vh - 32px);overflow:auto;
+  background:#0d1a14;border:1px solid rgba(37,211,102,.35);border-radius:22px;
+  box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 6px rgba(37,211,102,.06);
+}
+.wa-confirm__card:focus{outline:none}
+.wa-confirm.is-shown .wa-confirm__backdrop{animation:fadeIn .3s ease both}
+.wa-confirm.is-shown .wa-confirm__card{animation:popIn .45s cubic-bezier(.2,1.2,.4,1) both}
+@keyframes fadeIn{from{opacity:0}}
+@keyframes popIn{from{opacity:0;transform:translateY(24px) scale(.94)}}
+.wa-confirm__x{
+  position:absolute;top:10px;inset-inline-end:10px;z-index:1;width:44px;height:44px;border-radius:50%;
+  border:0;background:rgba(255,255,255,.08);color:#eafff4;font:inherit;cursor:pointer;
+}
+.wa-confirm__x:hover{background:rgba(255,255,255,.16)}
+.wa-confirm__head{display:flex;align-items:center;gap:12px;padding:16px 18px;padding-inline-end:64px;background:#12241c;border-bottom:1px solid rgba(37,211,102,.2)}
+.wa-confirm__avatar{
+  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex:0 0 auto;
+  background:linear-gradient(135deg,var(--brand-2),var(--brand));color:var(--brand-ink);
+}
+.wa-confirm__avatar svg{width:26px;height:26px}
+.wa-confirm__head b{display:block}
+.wa-confirm__status{font-size:.8rem;color:#5fe09a}
+.wa-confirm__body{
+  display:grid;gap:12px;padding:18px;
+  background-image:radial-gradient(rgba(255,255,255,.045) 1px,transparent 1px);background-size:18px 18px;
+}
+.wa-confirm__sent{
+  justify-self:end;display:flex;align-items:flex-end;gap:8px;max-width:85%;
+  background:#0f4f36;color:#eafff4;padding:9px 13px;border-radius:14px;border-end-end-radius:4px;font-size:.9rem;
+}
+.wa-confirm__ticks{font-style:normal;font-size:.75rem;color:#8a9bad;letter-spacing:-3px}
+.wa-confirm.is-shown .wa-confirm__sent{animation:riseIn .4s ease both .15s}
+.wa-confirm.is-shown .wa-confirm__ticks{animation:ticksRead .3s ease forwards 1.1s}
+@keyframes ticksRead{to{color:#53bdeb}}
+.wa-confirm__typing{
+  justify-self:start;display:flex;gap:4px;padding:12px 14px;background:#1e2c25;border-radius:14px;border-end-start-radius:4px;
+}
+.wa-confirm__typing[hidden]{display:none}
+.wa-confirm__typing span{width:7px;height:7px;border-radius:50%;background:#9fb0c2;animation:typing 1s infinite}
+.wa-confirm__typing span:nth-child(2){animation-delay:.15s}
+.wa-confirm__typing span:nth-child(3){animation-delay:.3s}
+@keyframes typing{0%,60%,100%{transform:translateY(0);opacity:.5}30%{transform:translateY(-4px);opacity:1}}
+.wa-confirm.is-shown .wa-confirm__typing{animation:riseIn .3s ease both .5s}
+.wa-confirm__reply{
+  justify-self:start;max-width:92%;background:#1e2c25;padding:12px 15px;border-radius:14px;border-end-start-radius:4px;
+}
+.wa-confirm.is-shown .wa-confirm__reply{animation:riseIn .45s ease both 2.2s}
+.wa-confirm__reply h2{font-size:1.2rem;margin:0 0 .3em}
+.wa-confirm__reply p{margin:0;font-size:.93rem;color:#d3dee9}
+.wa-confirm__reply b{color:#7fe6ab}
+.wa-confirm__steps{display:grid;gap:0;margin-top:4px;padding:14px 16px;background:rgba(0,0,0,.25);border:1px solid rgba(255,255,255,.07);border-radius:14px}
+.wa-confirm.is-shown .wa-confirm__steps{animation:riseIn .45s ease both 2.6s}
+.wa-confirm__steps li{position:relative;padding:0 0 12px;padding-inline-start:34px;display:grid}
+.wa-confirm__steps li:last-child{padding-bottom:0}
+.wa-confirm__steps li::before{
+  content:"" / "";position:absolute;inset-inline-start:0;top:2px;width:20px;height:20px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.25);background:#0d1a14;box-sizing:border-box;
+}
+.wa-confirm__steps li:not(:last-child)::after{
+  content:"" / "";position:absolute;inset-inline-start:9px;top:24px;bottom:2px;width:2px;background:rgba(255,255,255,.14);
+}
+.wa-confirm__steps li.is-done::before{border-color:var(--wa);background:var(--wa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2304160e' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6L9 17l-5-5'/%3E%3C/svg%3E") center/12px no-repeat}
+.wa-confirm__steps li.is-done::after{background:var(--wa)}
+.wa-confirm__steps li.is-now::before{border-color:var(--brand);animation:pulse 1.6s infinite}
+.wa-confirm__steps b{font-size:.93rem}
+.wa-confirm__steps span{font-size:.8rem;color:var(--txt-mute)}
+.wa-confirm__foot{padding:4px 18px 18px;display:grid;gap:10px;text-align:center}
+.wa-confirm__retry{font-size:.82rem;color:var(--txt-mute);text-decoration:underline;text-underline-offset:3px}
+.wa-confirm__retry:hover{color:#7fe6ab}
+
+/* מסך חי על הטאבלט בשלב 1 – ממוקם בפרספקטיבה מעל המסך שבתמונה (script.js) */
+.tab-screen{
+  position:absolute;top:0;left:0;width:300px;height:474px;transform-origin:0 0;pointer-events:none;
+  display:none;flex-direction:column;padding:22px 20px 18px;overflow:hidden;
+  background:linear-gradient(170deg,#fff 55%,#eef1f4);color:#111827;font-size:15px;line-height:1.3;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,.04),inset -10px 0 24px rgba(0,0,0,.05);
+}
+.tab-screen.is-placed{display:flex}
+.tab-screen::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 40%,rgba(255,255,255,.55) 50%,rgba(255,255,255,0) 60%);
+  transform:translateX(-100%);animation:glare 7s ease-in-out infinite;
+}
+@keyframes glare{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.ts__title{font-size:29px;font-weight:900;line-height:1.1}
+.ts__sub{font-size:16px;color:#16a34a;font-weight:700;margin:4px 0 14px}
+.ts__label{font-size:14px;font-weight:700;color:#4b5563;margin:10px 0 5px}
+.ts__field{
+  height:42px;display:flex;align-items:center;padding:0 12px;border:2px solid #d1d5db;border-radius:9px;
+  background:#f9fafb;font-size:18px;font-weight:600;transition:border-color .2s,box-shadow .2s;
+}
+.ts__field.is-active{border-color:#16a34a;box-shadow:0 0 0 3px rgba(22,163,74,.18)}
+.ts__field.is-active .ts__type::after{content:"";display:inline-block;width:2px;height:1.05em;margin-inline-start:2px;vertical-align:-2px;background:#111827;animation:caret .8s steps(1) infinite}
+@keyframes caret{50%{opacity:0}}
+.ts__chips{display:flex;gap:7px}
+.ts__chips span{
+  flex:1;height:36px;display:grid;place-items:center;border-radius:8px;border:2px solid #e5e7eb;
+  font-size:16px;font-weight:700;color:#374151;transition:background .25s,color .25s,border-color .25s,transform .25s;
+}
+.ts__chips span.is-on{background:#16a34a;border-color:#16a34a;color:#fff;transform:scale(1.07)}
+.ts__btn{
+  margin-top:auto;height:48px;display:grid;place-items:center;border-radius:10px;
+  background:#16a34a;color:#fff;font-size:19px;font-weight:800;transition:transform .15s,filter .15s;
+}
+.ts__btn.is-press{transform:scale(.95);filter:brightness(.88)}
+.ts__done{
+  position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  padding:24px;text-align:center;background:rgba(255,255,255,.97);opacity:0;transform:scale(.92);
+  transition:opacity .35s,transform .35s cubic-bezier(.2,1.3,.4,1);
+}
+.tab-screen.is-done .ts__done{opacity:1;transform:none}
+.ts__done b{width:74px;height:74px;border-radius:50%;display:grid;place-items:center;background:#16a34a;color:#fff;font-size:40px}
+.ts__done strong{font-size:26px;font-weight:900}
+.ts__done span{font-size:17px;color:#374151}
+
+/* צ'אט הדוגמה ושורות הדוח נכנסים אחד אחרי השני */
+.wa-chat__body.reveal--chat.is-visible>*:nth-child(2){transition-delay:.45s}
+.wa-chat__body.reveal--chat.is-visible>*:nth-child(3){transition-delay:.9s}
+.wa-chat__body.reveal--chat.is-visible>*:nth-child(4){transition-delay:1.35s}
+.wa-chat__body.reveal--chat.is-visible>*:nth-child(5){transition-delay:1.8s}
+.reveal--rows.is-visible>*:nth-child(5){transition-delay:.36s}
+.reveal--rows.is-visible>*:nth-child(6){transition-delay:.45s}
+.reveal--rows.is-visible>*:nth-child(7){transition-delay:.54s}
+.reveal--rows.is-visible>*:nth-child(8){transition-delay:.63s}
+.reveal--rows.is-visible>*:nth-child(9){transition-delay:.72s}
+.clients.is-visible>*:nth-child(5){transition-delay:.36s}
+.clients.is-visible>*:nth-child(6){transition-delay:.45s}
+
+@media (max-width:980px){
+  .clients{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:560px){
+  .clients{grid-template-columns:1fr 1fr;gap:10px}
+  .strip__item{width:160px}
+}
+
+/* מצבי תפריט הנגישות */
+html.a11y-contrast .wa-confirm__card{border:2px solid #fff!important}
+html.a11y-contrast :is(.strip__item span,.client::after){background-color:#000!important}
+/* בלי תנועה – הסרט הופך לשורה שאפשר לגלול ידנית, והחלון מוצג מיד במלואו */
+html.a11y-motion .strip__viewport{overflow-x:auto;mask-image:none}
+html.a11y-motion .strip__toggle{display:none}
+html.a11y-motion .wa-confirm__typing{display:none!important}
+@media (prefers-reduced-motion:reduce){
+  .strip__viewport{overflow-x:auto;mask-image:none}
+  .strip__toggle{display:none}
+  .wa-confirm__typing{display:none!important}
+}
+
 /* ---------- reveal ---------- */
 .reveal>*{opacity:0;transform:translateY(22px);transition:opacity .55s ease,transform .55s ease}
 .reveal.is-visible>*{opacity:1;transform:none}
