@@ -206,18 +206,51 @@ $('#resetForm').addEventListener('click', () => {
   $('#name').focus();
 });
 
-/* ---------- סרט התמונות הנע ---------- */
-// משכפלים כל שורה פעם אחת כדי שהגלילה תהיה רציפה; העותק מוסתר מקוראי מסך
-$$('.strip__track').forEach(track => {
-  [...track.children].forEach(li => {
-    const clone = li.cloneNode(true);
-    clone.setAttribute('aria-hidden', 'true');
-    clone.querySelector('img').alt = '';
-    track.appendChild(clone);
-  });
-});
+/* ---------- קרוסלת התמונות בהיירו – צעד אחד בכל שנייה ---------- */
+// מונע ב-JS ולא באנימציית CSS, כדי שתזוז גם בטלפונים עם "הפחתת תנועה" / חיסכון בסוללה
 const strip = $('.strip');
+const stripTrack = $('.strip__track', strip);
 const stripToggle = $('#stripToggle');
+const STRIP_N = stripTrack.children.length;
+// עותק אחד של כל התמונות לגלילה רציפה; העותק מוסתר מקוראי מסך
+[...stripTrack.children].forEach(li => {
+  const clone = li.cloneNode(true);
+  clone.setAttribute('aria-hidden', 'true');
+  clone.querySelector('img').alt = '';
+  stripTrack.appendChild(clone);
+});
+const stripItems = [...stripTrack.children];
+let stripIdx = 0, stripHover = false, stripInView = true;
+
+const stripStep = () => stripItems[0].offsetWidth + (parseFloat(getComputedStyle(stripTrack).columnGap) || 0);
+const stripRender = animate => {
+  strip.classList.toggle('no-anim', !animate);
+  const step = stripStep();
+  // RTL: התמונות זורמות מימין לשמאל, אז מזיזים את המסילה ימינה
+  stripTrack.style.transform = `translateX(${stripIdx * step}px)`;
+  const center = stripIdx + Math.floor(strip.clientWidth / step / 2);
+  stripItems.forEach((li, i) => li.classList.toggle('is-hot', i === center));
+  if (!animate) requestAnimationFrame(() => requestAnimationFrame(() => strip.classList.remove('no-anim')));
+};
+
+setInterval(() => {
+  if (document.documentElement.classList.contains('a11y-motion')) {
+    if (stripIdx) { stripIdx = 0; stripRender(false); }
+    return;
+  }
+  if (strip.classList.contains('is-paused') || stripHover || !stripInView || document.hidden) return;
+  stripIdx++;
+  stripRender(true);
+  // הגענו לסוף הסט המקורי – קופצים בשקט להתחלה (העותק נראה זהה)
+  if (stripIdx === STRIP_N) setTimeout(() => { stripIdx = 0; stripRender(false); }, 650);
+}, 1000);
+
+stripRender(false);
+window.addEventListener('resize', () => stripRender(false));
+new IntersectionObserver(([e]) => { stripInView = e.isIntersecting; }).observe(strip);
+// עצירה בריחוף עכבר בלבד – במגע הריחוף "נתקע" ועוצר את הקרוסלה
+strip.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') stripHover = true; });
+strip.addEventListener('pointerleave', () => { stripHover = false; });
 stripToggle.addEventListener('click', () => {
   const paused = strip.classList.toggle('is-paused');
   stripToggle.setAttribute('aria-pressed', String(paused));

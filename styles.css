@@ -713,7 +713,7 @@ html.a11y-gray body::before{filter:grayscale(1)}
 .hero__copy{min-width:0}
 .strip{position:relative;margin:4px 0 22px}
 .strip__toggle{
-  position:absolute;top:8px;left:8px;z-index:2;width:40px;height:40px;padding:0;
+  position:absolute;top:50%;left:4px;z-index:2;width:34px;height:34px;padding:0;transform:translateY(-50%);
   display:grid;place-items:center;border-radius:50%;
   background:rgba(9,13,19,.72);color:#fff;border:1px solid rgba(255,255,255,.3);backdrop-filter:blur(4px);
   font:inherit;font-size:.8rem;cursor:pointer;transition:border-color .2s,background .2s;
@@ -723,22 +723,28 @@ html.a11y-gray body::before{filter:grayscale(1)}
 .strip__toggle-play,.strip.is-paused .strip__toggle-pause{display:none}
 .strip.is-paused .strip__toggle-play{display:inline}
 .strip__viewport{
-  overflow:hidden;border-radius:16px;
-  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+  overflow:hidden;padding:12px 0;
+  mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
 }
-.strip__track{display:flex;gap:10px;padding-inline-end:10px;width:max-content;animation:stripRun 55s linear infinite}
-.strip:hover .strip__track,.strip:focus-within .strip__track,.strip.is-paused .strip__track{animation-play-state:paused}
-@keyframes stripRun{to{transform:translateX(50%)}}
+/* הצעדים מנוהלים ב-script.js; כאן רק המעבר בין צעד לצעד */
+.strip__track{display:flex;gap:10px;width:max-content;transition:transform .55s cubic-bezier(.7,0,.3,1);will-change:transform}
+.strip.no-anim .strip__track,.strip.no-anim .strip__item{transition:none}
 .strip__item{
-  position:relative;flex:0 0 auto;width:clamp(180px,17vw,220px);aspect-ratio:4/3;
-  border-radius:12px;overflow:hidden;border:1px solid var(--line);background:var(--ink-3);
+  --c1:#ff8a1f;--c2:#ffd166;--glow:rgba(255,138,31,.45);
+  position:relative;flex:0 0 auto;width:clamp(84px,8.6vw,112px);aspect-ratio:1;
+  padding:3px;border-radius:16px;background:linear-gradient(135deg,var(--c1),var(--c2));
+  box-shadow:0 6px 16px -6px var(--glow);
+  transition:transform .45s cubic-bezier(.3,1.5,.5,1),box-shadow .45s;
 }
-.strip__item img{display:block;width:100%;height:100%;object-fit:cover;filter:saturate(.92) contrast(1.04);transition:transform .6s ease,filter .4s}
-.strip__item:hover img{transform:scale(1.06);filter:none}
-.strip__item span{
-  position:absolute;inset-inline:0;bottom:0;padding:24px 10px 8px;font-weight:700;font-size:.8rem;line-height:1.3;color:#fff;
-  background:linear-gradient(180deg,rgba(5,8,12,0),rgba(5,8,12,.88) 55%);
+.strip__item:nth-child(5n+2){--c1:#22c55e;--c2:#a3e635;--glow:rgba(34,197,94,.45)}
+.strip__item:nth-child(5n+3){--c1:#2f8cff;--c2:#38e1ff;--glow:rgba(47,140,255,.45)}
+.strip__item:nth-child(5n+4){--c1:#ff4f8b;--c2:#ff9a3c;--glow:rgba(255,79,139,.45)}
+.strip__item:nth-child(5n+5){--c1:#ffc400;--c2:#2ee6a6;--glow:rgba(255,196,0,.45)}
+.strip__item img{
+  display:block;width:100%;height:100%;object-fit:cover;border-radius:13px;
+  filter:saturate(1.3) contrast(1.08) brightness(1.04);
 }
+.strip__item.is-hot{z-index:1;transform:scale(1.16) rotate(-3deg);box-shadow:0 10px 26px -4px var(--glow),0 0 0 2px rgba(255,255,255,.85)}
 
 /* לקוחות מרוצים */
 .clients{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:28px}
@@ -900,7 +906,7 @@ body.has-modal{overflow:hidden}
 }
 @media (max-width:560px){
   .clients{grid-template-columns:1fr 1fr;gap:10px}
-  .strip__item{width:160px}
+  .strip__item{width:80px;border-radius:14px}
 }
 
 /* מצבי תפריט הנגישות */
@@ -911,8 +917,6 @@ html.a11y-motion .strip__viewport{overflow-x:auto;mask-image:none}
 html.a11y-motion .strip__toggle{display:none}
 html.a11y-motion .wa-confirm__typing{display:none!important}
 @media (prefers-reduced-motion:reduce){
-  .strip__viewport{overflow-x:auto;mask-image:none}
-  .strip__toggle{display:none}
   .wa-confirm__typing{display:none!important}
 }
 
